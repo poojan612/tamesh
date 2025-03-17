@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>My Portfolio</title>
+	<style>
+	body {
+		font-family:Arial, sans-serif;
+		margin: 0;
+		padding: 0;
+		background-color: #f4f4f9;
+		color: #333;
+	}
+	header {
+		background-color: #333;
+		color: white;
+		padding: 20px 0;
+		text-align: center;
+	}
+	header h1 {
+		display: flex;
+		justify-content: center;
+		background-color: #444;
+	}
+	nav a:hover {
+		background-color: #ddd;
+		color: black;
+	}
+	section {
+		padding: 40px 20px;
+		margin: 20px;
+		background-color: white;
+		border-radius: 8px;
+		box-shadow: 0 2px 5px rgba(0, 0, 0.1);
+	}
+	h2 {
+		text-align: center;
+		color: #333;
+	}
+	.skills, .portfolio-items {
+		display: fkex;
+		justify-content: space-around;
+		flex-wrap: wrap;
+	}
+	.skill, .portfolio-item {
+		width: 30%;
+		padding: 20px;
+		text-align: center;
+		margin-bottom: 20px;
+		background-color: @f0f0f0;
+		bordeer-radius: 8px;
+	}
+	.portfolio-item img {
+		max-width: 100%;
+		border-radius: 8px;
+	}
+	.contact-form input, .contact-form textarea {
+		width: 100%;
+		padding: 12px;
+		margin: 10px 0;
+		border: 1px solid #ddd;
+		border-radius: 4px;
+	}
+	.contact-form button:hover {
+		background-color: #555;
+	}
+	</style>
+</head>
+<body>
+
+<header>
+	<h1>POOJAN PERERA</h1>
+	<p>Web Developer | Designer</p>
+</header>
+
+<section id="about">
+	<h2>Who Am I ?</h2>
+	<hr>
+	<p>Hello! I'm Poojan Tamesh Perera, a student who still facing A/L.
+I'm facing this exam via commeerce stream with ICT. This is my html project.
+Any way I can create web sites. So if you want one, just dial me :) </p>
+</section>
+
+<section id="skills">
+	<h2><b>Skills</b><h3>
+	<hr>
+	<div class="skills">
+		<center>
+		<div class="skill">
+			<h3><u>Accounting</u> :</h3>
+			<p>Experienced in creating financial statesments.</p>
+		</center>
+		</div>
+		<center>
+		<div class="skill">
+			<h3><u>Economics</u> :</h3>
+			Skilled in analysing stock market.
+		</center>
+		</div>
+		
+		<center>
+		<div class="skill">
+			<p align="right"><h3><u>English</u> :</h3>
+			<p>Have an diploma for this subject, also can teach.</p>
+		</div>
+		</center>
+	</div>
+</section>
+
+<section id="portfoilo">
+	<h2>Portfolio</h2>
+	<hr>
+	<div class="portfolio-items">
+
+		<center><img src="C:\Users\Mac\Desktop\Poojan\ff\dp.png" width="400px"  alt="ME">
+		<h3> ME </h3>
+		<p>This is me in a coat. Yeah..Yeah.. I know that I'm handsome. :)</p></center>
+	</div>
+</section>
+
+<section id="contact">
+	<h2>Contact Me</h2>
+	<form class="contact-form" action="#" method="POST"
+		<input type="text" name="name" placeholder="your message" required>
+		<input type="email" name="email" placeholder="Your Email" required>
+		<textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+		<button type="submit">Send Message</button>
+	</form>
+</section>
+
+<footer>
+	<p style="text-align: center; padding: 20px; background-color: #333; color: white;">&copy; 2025 Poojan Perera</p>
+</footer>
+</body>
+</html>
