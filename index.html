@@ -299,38 +299,50 @@ Any way I can create web sites. So if you want one, just dial me :) </p>
 
 <section id="contact">
 	<h2>Contact Me</h2>
-	<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = htmlspecialchars($_POST["name"]);
-    $email = htmlspecialchars($_POST["email"]);
-    $message = htmlspecialchars($_POST["message"]);
+	 body { font-family: Arial, sans-serif; text-align: center; }
+        .contact-form { width: 300px; margin: auto; }
+        input, textarea { width: 100%; margin: 10px 0; padding: 8px; }
+        button { background-color: #333; color: white; padding: 10px; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
 
-    $to = "your-poojantp12@gmail.com"; 
-    $subject = "New Message from Contact Form";
-    $headers = "From: $email\r\nReply-To: $email\r\nContent-Type: text/plain; charset=UTF-8";
+    <h2>Contact Me</h2>
 
-    $body = "Name: $name\nEmail: $email\n\nMessage:\n$message";
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $name = htmlspecialchars($_POST["name"]);
+        $email = htmlspecialchars($_POST["email"]);
+        $message = htmlspecialchars($_POST["message"]);
 
-    if (mail($to, $subject, $body, $headers)) {
-        echo "<p style='color: green;'>Message sent successfully via email!</p>";
-    } else {
-        echo "<p style='color: red;'>Failed to send message. Please try again later.</p>";
+        // Send Email
+        $to = "your-email@gmail.com"; // Replace with your Gmail address
+        $subject = "New Contact Form Message";
+        $headers = "From: $email\r\nReply-To: $email\r\nContent-Type: text/plain; charset=UTF-8";
+
+        $body = "Name: $name\nEmail: $email\n\nMessage:\n$message";
+
+        if (mail($to, $subject, $body, $headers)) {
+            echo "<p style='color: green;'>Message sent successfully via Email!</p>";
+        } else {
+            echo "<p style='color: red;'>Failed to send Email. Try again later.</p>";
+        }
+
+        // WhatsApp Redirection
+        $whatsapp_number = "1234567890"; // Replace with your WhatsApp number (without + or spaces)
+        $whatsapp_message = urlencode("Hello, my name is $name. My email is $email. Message: $message");
+        $whatsapp_url = "https://wa.me/$whatsapp_number?text=$whatsapp_message";
+
+        echo "<p><a href='$whatsapp_url' target='_blank' style='color: blue;'>Click here to send the message via WhatsApp</a></p>";
     }
-	$whatsapp_number="0722304324"
-	$whatsapp_message=urlencode("Hello, my name is @name. My email is $email. Message:  $message");
-	$whatsapp_url="https://wa.me/$whatsapp_number?text=$whatsapp_message";
+    ?>
 
-	echo "<p><a herf='$whatsapp_url' target='_blank' style='color:blue;'>Click heare to send the message via WhatsApp</a></p>";
-} else {
-    echo "Invalid request.";
-}
-?>
-	<form class="contact-form" action=" " method="POST"
-		<input type="text" name="name" placeholder="your message" required>
-		<input type="email" name="email" placeholder="Your Email" required>
-		<textarea name="message" placeholder="Your Message" rows="4" required></textarea>
-		<button type="submit">Send Message</button>
-	</form>
+    <form class="contact-form" method="POST" action="">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
 </section>
 
 <footer>
