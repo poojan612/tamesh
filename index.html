@@ -8,6 +8,21 @@
 		html {
     scroll-behavior: smooth;
 }
+<form class="contact-form" method="POST" action="<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST['name']
+    $email = $_POST['email']
+    $message = $_POST['message']
+
+    // Sednd the email
+    $to = "poojantp12@gmail.com";
+    $subject = "New Contact Form Submission";
+    $headers = "From: $email";
+    mail($to, $subject, $message, $headers);
+
+    echo "Message Sent Successfully!";
+}
+?>"
 /* Genaral Styles */
 body {
     font-family: Arial, sans-serif;
