@@ -5,6 +5,189 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	<title>My Portfolio</title>
 	<style>
+		html {
+    scroll-behavior: smooth;
+}
+/* Genaral Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    animation: fadeIn 1.5s wase-in-out;
+}
+
+/* Header Animation */
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    animation: slideDown 1s ease-in-out;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+/* Navigation Bar Animation */
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #444;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: fadeIn 2s ease-in-out;
+}
+
+nav a {
+    color: whitw;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+    flex: 1;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover {
+    background-color: #ddd;
+    color: black;
+    transform: scale(1.1);
+}
+
+/* Section Animation */
+section {
+    padding: 40px 20px;
+    margin: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    opacity: translateY(50px);
+    animation: fadeIn 1s ease-in-out forward;
+}
+
+/* Skill & Portfolio Grid Animation */
+.skills, .portfolio-item {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.skills, .portfolio-item {
+    width: 30%;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    transform: scale(0.8);
+    opacity: 0;
+    animation: scaleUp 0.8s ease-in-out forward;
+}
+
+.portfoilio-item img {
+    max-width: 100%;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Portfolio Image Hover Effect */
+.portfolio-item img:hover {
+    transform: scale(1.1);
+}
+
+/* Contact Form Animation */
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.contact-form input: focus, .contact-form textarea:focus {
+    transform: scale(1.05);
+    border-color: #333;
+}
+
+/* Button Animation */
+.contact-form button {
+    background-color: #333;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #555;
+    transform: scale(1.1);
+}
+
+/* Footer Animation */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    animation: slideUp 1s ease-in-out;
+}
+
+/* Keyframe Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 	body {
 		font-family:Arial, sans-serif;
 		margin: 0;
