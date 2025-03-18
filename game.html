@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catch the Box Game</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        #gameContainer {
+            position: relative;
+            width: 400px;
+            height: 500px;
+            border: 2px solid black;
+            margin: auto;
+            overflow: hidden;
+            background-color: lightblue;
+        }
+        #player {
+            position: absolute;
+            width: 60px;
+            height: 20px;
+            bottom: 10px;
+            left: 170px;
+            background-color: red;
+        }
+        .fallingBox {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: green;
+            left: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Catch the Box Game</h1>
+    <p>Move the red box using Left & Right arrow keys to catch falling objects.</p>
+    <p>Score: <span id="score">0</span></p>
+    
+    <div id="gameContainer">
+        <div id="player"></div>
+    </div>
+
+    <script>
+        const player = document.getElementById("player");
+        const gameContainer = document.getElementById("gameContainer");
+        let playerX = 170;
+        let score = 0;
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "ArrowLeft" && playerX > 0) {
+                playerX -= 20;
+            } else if (event.key === "ArrowRight" && playerX < 340) {
+                playerX += 20;
+            }
+            player.style.left = playerX + "px";
+        });
+
+        function createFallingBox() {
+            const box = document.createElement("div");
+            box.classList.add("fallingBox");
+            box.style.left = Math.random() * 380 + "px";
+            gameContainer.appendChild(box);
+
+            let boxY = 0;
+            const fallInterval = setInterval(() => {
+                boxY += 5;
+                box.style.top = boxY + "px";
+
+                // Collision detection
+                if (boxY > 470 && Math.abs(playerX - parseInt(box.style.left)) < 50) {
+                    score++;
+                    document.getElementById("score").textContent = score;
+                    clearInterval(fallInterval);
+                    gameContainer.removeChild(box);
+                }
+
+                if (boxY > 500) {
+                    clearInterval(fallInterval);
+                    gameContainer.removeChild(box);
+                }
+            }, 50);
+        }
+
+        setInterval(createFallingBox, 1000);
+    </script>
+</body>
+</html>
