@@ -299,7 +299,28 @@ Any way I can create web sites. So if you want one, just dial me :) </p>
 
 <section id="contact">
 	<h2>Contact Me</h2>
-	<form class="contact-form" action="contact.php" method="POST"
+	<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = htmlspecialchars($_POST["name"]);
+    $email = htmlspecialchars($_POST["email"]);
+    $message = htmlspecialchars($_POST["message"]);
+
+    $to = "your-poojantp@gmail.com"; 
+    $subject = "New Message from Contact Form";
+    $headers = "From: $email\r\nReply-To: $email\r\nContent-Type: text/plain; charset=UTF-8";
+
+    $body = "Name: $name\nEmail: $email\n\nMessage:\n$message";
+
+    if (mail($to, $subject, $body, $headers)) {
+        echo "Message sent successfully!";
+    } else {
+        echo "Failed to send message. Please try again later.";
+    }
+} else {
+    echo "Invalid request.";
+}
+?>
+	<form class="contact-form" action=" " method="POST"
 		<input type="text" name="name" placeholder="your message" required>
 		<input type="email" name="email" placeholder="Your Email" required>
 		<textarea name="message" placeholder="Your Message" rows="4" required></textarea>
