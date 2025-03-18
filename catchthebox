@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catch the Box Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Catch the Box Game</h1>
+    <p>Move the red box using Left & Right arrow keys to catch falling objects.</p>
+    <p>Score: <span id="score">0</span></p>
+    
+    <div id="gameContainer">
+        <div id="player"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
