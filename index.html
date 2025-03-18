@@ -309,34 +309,6 @@ Any way I can create web sites. So if you want one, just dial me :) </p>
 
     <h2>Contact Me</h2>
 
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $name = htmlspecialchars($_POST["name"]);
-        $email = htmlspecialchars($_POST["email"]);
-        $message = htmlspecialchars($_POST["message"]);
-
-        // Send Email
-        $to = "your-poojantp12@gmail.com"; // Replace with your Gmail address
-        $subject = "New Contact Form Message";
-        $headers = "From: $email\r\nReply-To: $email\r\nContent-Type: text/plain; charset=UTF-8";
-
-        $body = "Name: $name\nEmail: $email\n\nMessage:\n$message";
-
-        if (mail($to, $subject, $body, $headers)) {
-            echo "<p style='color: green;'>Message sent successfully via Email!</p>";
-        <} else {>
-	"<p style='color: red;'>Failed to send Email. Try again later.</p>";
-        }
-
-       < // WhatsApp Redirection
-        $whatsapp_number = "0722304324"; // Replace with your WhatsApp number (without + or spaces)
-        $whatsapp_message = urlencode("Hello, my name is $name. My email is $email. Message: $message");
-        $whatsapp_url = "https://wa.me/$whatsapp_number?text=$whatsapp_message";
-
-        echo "><p><a href='https://chat.whatsapp.com/JSRQO8qXW3CKlEOITYARp5' target='_blank' style='color: blue;'>Click here to send the message via WhatsApp</a></p>";
-    }
-    ?>
-
     <form class="contact-form" method="POST" action="">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
